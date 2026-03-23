@@ -43,9 +43,9 @@ The core solver optimizes the dual objective function of SVM+ by operating on ir
 
 To reproduce the results presented in the paper using the MNIST benchmark:
 
-1. **Prepare Data**: Load the subsampled MNIST dataset (digits 5 vs 8).
+1. **Function call**:
    ```matlab
-   load('train_reducted.mat'); % Contains fv, fvStar, and lbl
+    [z_smo, fval_smo, b] = solve_asmo(fv, fvStar, y, C, gamma, sgmPlus, sgmStar, opts_asmo)
 
 ## 📝 Citation
 If you use this code or the aSMO algorithm in your research, please cite the following paper:
