@@ -1,47 +1,47 @@
 # aSMO: A Linear-Time SMO Solver for Large-Scale SVM+ Learning
 
-This repository contains the official MATLAB implementation of **aSMO**, an efficient Sequential Minimal Optimization (SMO)-style solver designed for the **Learning Using Privileged Information (LUPI)** paradigm[cite: 9, 41]. 
+This repository contains the official MATLAB implementation of **aSMO**, an efficient Sequential Minimal Optimization (SMO)-style solver designed for the **Learning Using Privileged Information (LUPI)** paradigm. 
 
-Unlike generic Quadratic Programming (QP) solvers that typically scale as $O(n^3)$, this algorithm achieves a **linear-time complexity per iteration**, $O(n)$, enabling the training of SVM+ models with tens of thousands of samples[cite: 50, 406, 407].
+Unlike generic Quadratic Programming (QP) solvers that typically scale as $O(n^3)$, this algorithm achieves a **linear-time complexity per iteration**, $O(n)$, enabling the training of SVM+ models with tens of thousands of samples.
 
 ## Key Features
-* **Computational Efficiency**: Reduces the cost per iteration from $O(n^2)$ to a linear bound of $T_{iter} \le 4n$[cite: 50, 403].
-* **Scalability**: Successfully processes up to 50,000 samples in less than four minutes[cite: 14, 635, 755].
-* **Generalization**: Provides the first comprehensive implementation of an SMO-style solver for general binary SVM+ problems[cite: 15, 44, 761].
-* **Numerical Precision**: Achieves objective function values virtually identical to exact QP solvers, with a relative difference below $1.2 \times 10^{-4}$[cite: 16, 601, 754].
-* **Open Source**: The first publicly available tool of its kind to bridge the gap between SVM+ theory and practical deployment[cite: 15, 52, 765].
+* **Computational Efficiency**: Reduces the cost per iteration from $O(n^2)$ to a linear bound of $T_{iter} \le 4n$.
+* **Scalability**: Successfully processes up to 50,000 samples in less than four minutes.
+* **Generalization**: Provides the first comprehensive implementation of an SMO-style solver for general binary SVM+ problems.
+* **Numerical Precision**: Achieves objective function values virtually identical to exact QP solvers, with a relative difference below $1.2 \times 10^{-4}$.
+* **Open Source**: The first publicly available tool of its kind to bridge the gap between SVM+ theory and practical deployment.
 
 ---
 
 ## Function Reference: `solve_asmo`
 
-The core solver optimizes the dual objective function of SVM+ by operating on irreducible sets of variables[cite: 10, 184, 191].
+The core solver optimizes the dual objective function of SVM+ by operating on irreducible sets of variables.
 
 ### Input Parameters
 | Parameter | Description |
 | :--- | :--- |
-| `fv` | [cite_start]Decision space feature matrix $X$ ($n \times d$)[cite: 153, 163, 861]. |
-| `fvStar` | [cite_start]Privileged information feature matrix $X^*$ ($n \times d^*$)[cite: 153, 163, 861]. |
-| `lbl` | [cite_start]Binary class labels $y_i \in \{-1, +1\}$[cite: 153, 75, 861]. |
-| `C` | [cite_start]Regularization parameter balancing margin and errors[cite: 166, 73, 861]. |
-| `gamma` | [cite_start]Hyperparameter $\gamma$ controlling the influence of privileged info[cite: 165, 102, 861]. |
-| `sgmPlus` | [cite_start]Gaussian RBF kernel width for the decision space[cite: 81, 89, 861]. |
-| `sgmStar` | [cite_start]Gaussian RBF kernel width for the privileged space[cite: 102, 585, 861]. |
-| `opts` | [cite_start]Struct with `tol` (KKT threshold), `maxIter`, and `kappa` (min step)[cite: 591, 283]. |
+| `fv` | [cite_start]Decision space feature matrix $X$ ($n \times d$). |
+| `fvStar` | [cite_start]Privileged information feature matrix $X^*$ ($n \times d^*$). |
+| `lbl` | [cite_start]Binary class labels $y_i \in \{-1, +1\}$. |
+| `C` | [cite_start]Regularization parameter balancing margin and errors. |
+| `gamma` | [cite_start]Hyperparameter $\gamma$ controlling the influence of privileged info. |
+| `sgmPlus` | [cite_start]Gaussian RBF kernel width for the decision space. |
+| `sgmStar` | [cite_start]Gaussian RBF kernel width for the privileged space. |
+| `opts` | [cite_start]Struct with `tol` (KKT threshold), `maxIter`, and `kappa` (min step). |
 
 ### Output Parameters
 | Parameter | Description |
 | :--- | :--- |
-| `z` | Concatenated vector of Lagrange multipliers $[\alpha; [cite_start]\beta]$[cite: 62, 172, 861]. |
-| `fval` | [cite_start]Value of the dual objective function $J(\alpha, \beta)$ at convergence[cite: 173, 601, 861]. |
-| `bPlus` | [cite_start]Bias term for the decision boundary[cite: 378, 379, 861]. |
-| `bStar` | [cite_start]Bias term for the correcting function in privileged space[cite: 161, 378, 861]. |
+| `z` | Concatenated vector of Lagrange multipliers $[\alpha; [cite_start]\beta]$. |
+| `fval` | [cite_start]Value of the dual objective function $J(\alpha, \beta)$ at convergence. |
+| `bPlus` | [cite_start]Bias term for the decision boundary. |
+| `bStar` | [cite_start]Bias term for the correcting function in privileged space. |
 
 ---
 
 ## Usage Example
 
-To reproduce the results presented in the paper using the MNIST benchmark[cite: 411, 431]:
+To reproduce the results presented in the paper using the MNIST benchmark:
 
 1. **Prepare Data**: Load the subsampled MNIST dataset (digits 5 vs 8).
    ```matlab
