@@ -2,20 +2,20 @@
 
 This repository contains the official MATLAB implementation of **aSMO**, an efficient Sequential Minimal Optimization (SMO)-style solver designed for the **Learning Using Privileged Information (LUPI)** paradigm[cite: 9, 41]. 
 
-[cite_start]Unlike generic Quadratic Programming (QP) solvers that typically scale as $O(n^3)$, this algorithm achieves a **linear-time complexity per iteration**, $O(n)$, enabling the training of SVM+ models with tens of thousands of samples[cite: 50, 406, 407].
+Unlike generic Quadratic Programming (QP) solvers that typically scale as $O(n^3)$, this algorithm achieves a **linear-time complexity per iteration**, $O(n)$, enabling the training of SVM+ models with tens of thousands of samples[cite: 50, 406, 407].
 
 ## Key Features
-* [cite_start]**Computational Efficiency**: Reduces the cost per iteration from $O(n^2)$ to a linear bound of $T_{iter} \le 4n$[cite: 50, 403].
-* [cite_start]**Scalability**: Successfully processes up to 50,000 samples in less than four minutes[cite: 14, 635, 755].
-* [cite_start]**Generalization**: Provides the first comprehensive implementation of an SMO-style solver for general binary SVM+ problems[cite: 15, 44, 761].
-* [cite_start]**Numerical Precision**: Achieves objective function values virtually identical to exact QP solvers, with a relative difference below $1.2 \times 10^{-4}$[cite: 16, 601, 754].
-* [cite_start]**Open Source**: The first publicly available tool of its kind to bridge the gap between SVM+ theory and practical deployment[cite: 15, 52, 765].
+* **Computational Efficiency**: Reduces the cost per iteration from $O(n^2)$ to a linear bound of $T_{iter} \le 4n$[cite: 50, 403].
+* **Scalability**: Successfully processes up to 50,000 samples in less than four minutes[cite: 14, 635, 755].
+* **Generalization**: Provides the first comprehensive implementation of an SMO-style solver for general binary SVM+ problems[cite: 15, 44, 761].
+* **Numerical Precision**: Achieves objective function values virtually identical to exact QP solvers, with a relative difference below $1.2 \times 10^{-4}$[cite: 16, 601, 754].
+* **Open Source**: The first publicly available tool of its kind to bridge the gap between SVM+ theory and practical deployment[cite: 15, 52, 765].
 
 ---
 
 ## Function Reference: `solve_asmo`
 
-[cite_start]The core solver optimizes the dual objective function of SVM+ by operating on irreducible sets of variables[cite: 10, 184, 191].
+The core solver optimizes the dual objective function of SVM+ by operating on irreducible sets of variables[cite: 10, 184, 191].
 
 ### Input Parameters
 | Parameter | Description |
