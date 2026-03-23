@@ -1,4 +1,4 @@
- aSMO: A Linear-Time SMO Solver for Large-Scale SVM+ Learning
+# aSMO: A Linear-Time SMO Solver for Large-Scale SVM+ Learning
 
 This repository contains the official MATLAB implementation of **aSMO**, an efficient Sequential Minimal Optimization (SMO)-style solver designed for the **Learning Using Privileged Information (LUPI)** paradigm[cite: 9, 41]. 
 
